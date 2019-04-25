@@ -1,14 +1,37 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-list>
+    <!-- Contact List -->
+    <ion-item-divider color="secondary">
+      <ion-label>
+        Contacts
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button><ion-icon name="add"></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-item-divider>
+    <ion-item button *ngFor="let contact of contacts" [routerLink]="['/contact', contact.id]">
+      {{(contact.firstname && contact.lastname) ? contact.lastname + ' ' + contact.firstname : contact.firstname ? contact.firstname : contact.lastname ? contact.lastname : contact.companyname ? contact.companyname : '' + contact.phonenumber}}
+    </ion-item>
+
+    <!-- Memo List -->
+    <ion-item-divider color="tertiary">
+      <ion-label>
+        Memos
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button><ion-icon name="add"></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-item-divider>
+    <ion-item button *ngFor="let memo of memos" [routerLink]="['/memo', memo.id]">
+      {{memo.name}}
+    </ion-item>
+  </ion-list>
 </ion-content>
