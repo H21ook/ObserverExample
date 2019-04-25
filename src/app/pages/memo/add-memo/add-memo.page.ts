@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Memo } from 'src/app/models/memo.model';
+import { MemoService } from 'src/app/services/memo.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-memo',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddMemoPage implements OnInit {
 
-  constructor() { }
+  private memo: Memo = {};
+  saveBtnDisabled: boolean = true;
 
-  ngOnInit() {
+  constructor(
+    private memoService: MemoService,
+    private navCtrl: NavController
+  ) { }
+
+  ngOnInit() { }
+
+  changeName() {
+    if(this.memo.name) {
+      this.saveBtnDisabled = false;
+    } else {
+      this.saveBtnDisabled = true;
+    }
   }
-
+  save() {
+    this.memoService.addMemo(this.memo);
+    this.navCtrl.navigateBack('/home');
+  }
 }

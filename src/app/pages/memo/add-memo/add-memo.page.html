@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>addMemo</ion-title>
+    <ion-title>Add Memo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input name="name" required="true" [(ngModel)]="memo.name" (ionChange)="changeName()"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Body</ion-label>
+    <ion-textarea value="" [(ngModel)]="memo.body">
+    </ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Description</ion-label>
+    <ion-textarea value="" [(ngModel)]="memo.description">
+    </ion-textarea>
+  </ion-item>
+  <ion-button expand="full" shape="round" fill="outline" (click)="save()" [disabled]="saveBtnDisabled">Save</ion-button>
 </ion-content>

@@ -14,7 +14,7 @@
         Contacts
       </ion-label>
       <ion-buttons slot="end">
-        <ion-button><ion-icon name="add"></ion-icon></ion-button>
+        <ion-button [routerLink]="['/add-contact']" [routerLink]="['forward']"><ion-icon name="add"></ion-icon></ion-button>
       </ion-buttons>
     </ion-item-divider>
     <ion-item button *ngFor="let contact of contacts" [routerLink]="['/contact', contact.id]">
@@ -27,7 +27,7 @@
         Memos
       </ion-label>
       <ion-buttons slot="end">
-        <ion-button><ion-icon name="add"></ion-icon></ion-button>
+        <ion-button [routerLink]="['/add-memo']" [routerLink]="['forward']"><ion-icon name="add"></ion-icon></ion-button>
       </ion-buttons>
     </ion-item-divider>
     <ion-item button *ngFor="let memo of memos" [routerLink]="['/memo', memo.id]">

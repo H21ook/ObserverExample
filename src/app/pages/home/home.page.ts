@@ -15,11 +15,10 @@ export class HomePage implements OnInit{
   private contacts: Contact[];
   private memos: Memo[];
 
-  private contactListHide: boolean = false;
   constructor(
     private contactService: ContactService,
     private memoService: MemoService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.contactService.getContacts().subscribe(data => {
@@ -27,12 +26,6 @@ export class HomePage implements OnInit{
     });
 
     this.memoService.getMemos().subscribe(data => {
-      if(this.contacts) {
-        this.contactListHide = true;
-      } else {
-        this.contactListHide = false;
-      }
-      console.log(this.contacts);
       this.memos = data;
     });
   }

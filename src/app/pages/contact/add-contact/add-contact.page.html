@@ -5,5 +5,29 @@
 </ion-header>
 
 <ion-content>
-
+    <ion-item>
+      <ion-label position="stacked">Firstname</ion-label>
+      <ion-input name="firstname" [(ngModel)]="contact.firstname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Lastname</ion-label>
+      <ion-input name="lastname" [(ngModel)]="contact.lastname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Company name</ion-label>
+      <ion-input name="companyname" [(ngModel)]="contact.companyname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Phone number</ion-label>
+      <ion-input name="phonenumber" type="number" required="true" [(ngModel)]="contact.phonenumber" (ionChange)="changePhoneNumber()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input name="email" type="email" [(ngModel)]="contact.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Age</ion-label>
+      <ion-input name="age" type="number" [(ngModel)]="contact.age"></ion-input>
+    </ion-item>
+    <ion-button expand="full" shape="round" fill="outline" (click)="save()" [disabled]="saveBtnDisabled">Save</ion-button>
 </ion-content>
