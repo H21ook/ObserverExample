@@ -9,11 +9,13 @@
 <ion-content>
   <ion-list>
     <!-- Contact List -->
-    <div class="cb">
-      <button class="btn" (click)="toggleDiv($event)"><div class="ripple" [@test1]="{ 'value': openClose ? true : false, 'params': { height: ripple.height, width:  ripple.width, left: ripple.left, top: ripple.top, x: ripple.x, y: ripple.y}}"></div>Click Me</button>
-      <!-- <div (click)="toggleDiv($event)" class="ripple" [@test1]="{ 'value': openClose ? true : false, 'params': { height: ripple.height, width:  ripple.width, left: ripple.left, top: ripple.top, x: ripple.x, y: ripple.y}}"></div> -->
-    </div>
-    <!-- <div (click)="toggleDiv($event)" class="ripple" [@test1]="{ 'value': openClose ? true : false, 'params': { height: ripple.height, width:  ripple.width, left: ripple.left, top: ripple.top, x: ripple.x, y: ripple.y}}"></div> -->
+    <ion-list>
+      <ion-button size="small" expand="full" class="btn" (click)="toggleRipple($event)">
+        <div class="ripple" [@btn]="{ 'value': ripple ? true : false, 'params': rippleData}">
+        </div>
+        Click Me
+      </ion-button>
+    </ion-list>
     <ion-item-divider color="secondary">
       <ion-label>
         Contacts
